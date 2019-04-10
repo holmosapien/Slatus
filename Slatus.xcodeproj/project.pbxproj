@@ -11,6 +11,18 @@
 		9E552D542259AAE30093E956 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D532259AAE30093E956 /* ViewController.swift */; };
 		9E552D562259AAE80093E956 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E552D552259AAE80093E956 /* Assets.xcassets */; };
 		9E552D592259AAE80093E956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E552D572259AAE80093E956 /* Main.storyboard */; };
+		9E552D642259B1830093E956 /* SKClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D632259B1830093E956 /* SKClient.framework */; };
+		9E552D662259B1890093E956 /* SKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D652259B1890093E956 /* SKCore.framework */; };
+		9E552D6D2259B1950093E956 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D672259B1940093E956 /* Swifter.framework */; };
+		9E552D6E2259B1950093E956 /* SKRTMAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D682259B1940093E956 /* SKRTMAPI.framework */; };
+		9E552D6F2259B1950093E956 /* SlackKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D692259B1950093E956 /* SlackKit.framework */; };
+		9E552D702259B1950093E956 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D6A2259B1950093E956 /* Starscream.framework */; };
+		9E552D712259B1950093E956 /* SKServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D6B2259B1950093E956 /* SKServer.framework */; };
+		9E552D722259B1950093E956 /* SKWebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E552D6C2259B1950093E956 /* SKWebAPI.framework */; };
+		9E552D88225A7C030093E956 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D87225A7C030093E956 /* Conversation.swift */; };
+		9E552D8E225C07540093E956 /* ConversationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D8D225C07540093E956 /* ConversationTracker.swift */; };
+		9E552D90225C07890093E956 /* SlackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D8F225C07890093E956 /* SlackClient.swift */; };
+		9E552D92225C183A0093E956 /* SlackWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D91225C183A0093E956 /* SlackWorkspace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +33,18 @@
 		9E552D582259AAE80093E956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E552D5A2259AAE80093E956 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E552D5B2259AAE80093E956 /* Slatus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slatus.entitlements; sourceTree = "<group>"; };
+		9E552D632259B1830093E956 /* SKClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKClient.framework; path = Slatus/Carthage/Build/Mac/SKClient.framework; sourceTree = "<group>"; };
+		9E552D652259B1890093E956 /* SKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKCore.framework; path = Slatus/Carthage/Build/Mac/SKCore.framework; sourceTree = "<group>"; };
+		9E552D672259B1940093E956 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Slatus/Carthage/Build/Mac/Swifter.framework; sourceTree = "<group>"; };
+		9E552D682259B1940093E956 /* SKRTMAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKRTMAPI.framework; path = Slatus/Carthage/Build/Mac/SKRTMAPI.framework; sourceTree = "<group>"; };
+		9E552D692259B1950093E956 /* SlackKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SlackKit.framework; path = Slatus/Carthage/Build/Mac/SlackKit.framework; sourceTree = "<group>"; };
+		9E552D6A2259B1950093E956 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Slatus/Carthage/Build/Mac/Starscream.framework; sourceTree = "<group>"; };
+		9E552D6B2259B1950093E956 /* SKServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKServer.framework; path = Slatus/Carthage/Build/Mac/SKServer.framework; sourceTree = "<group>"; };
+		9E552D6C2259B1950093E956 /* SKWebAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SKWebAPI.framework; path = Slatus/Carthage/Build/Mac/SKWebAPI.framework; sourceTree = "<group>"; };
+		9E552D87225A7C030093E956 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		9E552D8D225C07540093E956 /* ConversationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTracker.swift; sourceTree = "<group>"; };
+		9E552D8F225C07890093E956 /* SlackClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackClient.swift; sourceTree = "<group>"; };
+		9E552D91225C183A0093E956 /* SlackWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackWorkspace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +52,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E552D642259B1830093E956 /* SKClient.framework in Frameworks */,
+				9E552D662259B1890093E956 /* SKCore.framework in Frameworks */,
+				9E552D6D2259B1950093E956 /* Swifter.framework in Frameworks */,
+				9E552D6E2259B1950093E956 /* SKRTMAPI.framework in Frameworks */,
+				9E552D6F2259B1950093E956 /* SlackKit.framework in Frameworks */,
+				9E552D702259B1950093E956 /* Starscream.framework in Frameworks */,
+				9E552D712259B1950093E956 /* SKServer.framework in Frameworks */,
+				9E552D722259B1950093E956 /* SKWebAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +71,7 @@
 			children = (
 				9E552D502259AAE30093E956 /* Slatus */,
 				9E552D4F2259AAE30093E956 /* Products */,
+				9E552D622259B1830093E956 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +86,7 @@
 		9E552D502259AAE30093E956 /* Slatus */ = {
 			isa = PBXGroup;
 			children = (
+				9E552D612259AB350093E956 /* Sources */,
 				9E552D512259AAE30093E956 /* AppDelegate.swift */,
 				9E552D532259AAE30093E956 /* ViewController.swift */,
 				9E552D552259AAE80093E956 /* Assets.xcassets */,
@@ -61,6 +95,32 @@
 				9E552D5B2259AAE80093E956 /* Slatus.entitlements */,
 			);
 			path = Slatus;
+			sourceTree = "<group>";
+		};
+		9E552D612259AB350093E956 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9E552D87225A7C030093E956 /* Conversation.swift */,
+				9E552D8D225C07540093E956 /* ConversationTracker.swift */,
+				9E552D91225C183A0093E956 /* SlackWorkspace.swift */,
+				9E552D8F225C07890093E956 /* SlackClient.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9E552D622259B1830093E956 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E552D682259B1940093E956 /* SKRTMAPI.framework */,
+				9E552D6B2259B1950093E956 /* SKServer.framework */,
+				9E552D6C2259B1950093E956 /* SKWebAPI.framework */,
+				9E552D692259B1950093E956 /* SlackKit.framework */,
+				9E552D6A2259B1950093E956 /* Starscream.framework */,
+				9E552D672259B1940093E956 /* Swifter.framework */,
+				9E552D652259B1890093E956 /* SKCore.framework */,
+				9E552D632259B1830093E956 /* SKClient.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,6 +133,7 @@
 				9E552D4A2259AAE30093E956 /* Sources */,
 				9E552D4B2259AAE30093E956 /* Frameworks */,
 				9E552D4C2259AAE30093E956 /* Resources */,
+				9E552D95225D5D570093E956 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -95,6 +156,11 @@
 				TargetAttributes = {
 					9E552D4D2259AAE30093E956 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -128,13 +194,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E552D95225D5D570093E956 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SKClient.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SKCore.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SKRTMAPI.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SKServer.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SKWebAPI.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/SlackKit.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/Starscream.framework",
+				"$(SRCROOT)/Slatus/Carthage/Build/Mac/Swifter.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/SKClient.framework",
+				"$(DERIVED_FILE_DIR)/SKCore.framework",
+				"$(DERIVED_FILE_DIR)/SKRTMAPI.framework",
+				"$(DERIVED_FILE_DIR)/SKServer.framework",
+				"$(DERIVED_FILE_DIR)/SKWebAPI.framework",
+				"$(DERIVED_FILE_DIR)/SlackKit.framework",
+				"$(DERIVED_FILE_DIR)/Starscream.framework",
+				"$(DERIVED_FILE_DIR)/Swifter.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E552D4A2259AAE30093E956 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E552D92225C183A0093E956 /* SlackWorkspace.swift in Sources */,
 				9E552D542259AAE30093E956 /* ViewController.swift in Sources */,
 				9E552D522259AAE30093E956 /* AppDelegate.swift in Sources */,
+				9E552D88225A7C030093E956 /* Conversation.swift in Sources */,
+				9E552D8E225C07540093E956 /* ConversationTracker.swift in Sources */,
+				9E552D90225C07890093E956 /* SlackClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,9 +377,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Slatus/Slatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Slatus/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Slatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -289,9 +398,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Slatus/Slatus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Slatus/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = Slatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
