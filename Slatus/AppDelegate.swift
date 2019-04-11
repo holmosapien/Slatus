@@ -7,12 +7,12 @@
 //
 
 import Cocoa
-import SlackKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let defaults   = UserDefaults.standard
+    let defaults = UserDefaults.standard
     var workspaces = [SlackWorkspace]()
+    var notificationCenter = NotificationCenter.default
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -30,25 +30,53 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //
 
         for token in slackTokens {
-            let workspace = SlackWorkspace()
-            let bot = SlackKit()
-
-            // The RTM API uses a webhook to get rapid updates for Slack activity.
-            // SlackClient is a sub-class of the RTM client in the SlackKit library:
-            // https://github.com/pvzig/SlackKit
-
-            bot.addRTMBotWithAPIToken(token, client: SlackClient(bot, workspace))
-
-            // The web API is useful for getting more information about channels and users
-            // during webhook activity.
-
-            bot.addWebAPIAccessWithToken(token)
-
-            self.workspaces.append(workspace)
+            self.addSlackWorkspace(token, save: false)
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+
+    func addSlackWorkspace(_ token: String, save: Bool) {
+        let workspace = SlackWorkspace(token)
+
+        workspace.go()
+
+        self.workspaces.append(workspace)
+
+        //
+        // Save it to UserDefaults if it's not already there.
+        //
+
+        if save == true {
+            if let tokens = self.defaults.object(forKey: "SlackTokens") as? [String] {
+                if tokens.index(of: token) == nil {
+                    let newTokens = tokens + [token]
+
+                    self.defaults.set(newTokens, forKey: "SlackTokens")
+                }
+            }
+        }
+
+        self.notificationCenter.post(name: Notification.Name("conversationListUpdate"), object: nil)
+    }
+
+    func deleteSlackWorkspace(_ workspace: SlackWorkspace) {
+        let token = workspace.token
+
+        if let index = self.workspaces.index(of: workspace) {
+            self.workspaces.remove(at: index)
+
+            if let tokens = self.defaults.object(forKey: "SlackTokens") as? [String] {
+                if tokens.index(of: token) != nil {
+                    let newTokens = tokens.filter { $0 != token }
+
+                    self.defaults.set(newTokens, forKey: "SlackTokens")
+                }
+            }
+
+            self.notificationCenter.post(name: Notification.Name("conversationListUpdate"), object: nil)
+        }
     }
 }

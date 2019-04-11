@@ -23,6 +23,7 @@
 		9E552D8E225C07540093E956 /* ConversationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D8D225C07540093E956 /* ConversationTracker.swift */; };
 		9E552D90225C07890093E956 /* SlackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D8F225C07890093E956 /* SlackClient.swift */; };
 		9E552D92225C183A0093E956 /* SlackWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D91225C183A0093E956 /* SlackWorkspace.swift */; };
+		9E552D9B225D8E340093E956 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E552D9A225D8E340093E956 /* PreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		9E552D8D225C07540093E956 /* ConversationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationTracker.swift; sourceTree = "<group>"; };
 		9E552D8F225C07890093E956 /* SlackClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlackClient.swift; sourceTree = "<group>"; };
 		9E552D91225C183A0093E956 /* SlackWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackWorkspace.swift; sourceTree = "<group>"; };
+		9E552D9A225D8E340093E956 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				9E552D612259AB350093E956 /* Sources */,
 				9E552D512259AAE30093E956 /* AppDelegate.swift */,
 				9E552D532259AAE30093E956 /* ViewController.swift */,
+				9E552D9A225D8E340093E956 /* PreferencesViewController.swift */,
 				9E552D552259AAE80093E956 /* Assets.xcassets */,
 				9E552D572259AAE80093E956 /* Main.storyboard */,
 				9E552D5A2259AAE80093E956 /* Info.plist */,
@@ -240,6 +243,7 @@
 				9E552D522259AAE30093E956 /* AppDelegate.swift in Sources */,
 				9E552D88225A7C030093E956 /* Conversation.swift in Sources */,
 				9E552D8E225C07540093E956 /* ConversationTracker.swift in Sources */,
+				9E552D9B225D8E340093E956 /* PreferencesViewController.swift in Sources */,
 				9E552D90225C07890093E956 /* SlackClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
