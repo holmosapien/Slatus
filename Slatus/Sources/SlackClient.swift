@@ -146,11 +146,6 @@ class SlackClient: Client {
                 }
             }
 
-            //
-            // TODO: Pull all of the user data from the user map before sending it to the PrivateMessage class,
-            // instead of expecting the class to do all of the data mapping.
-            //
-
             let conversation = Conversation(webAPI: self.bot.webAPI, id: id, name: nil, members: members, type: type, lastRead: lastRead)
 
             print("Watching conversation id \(id) of type \(type): \(members)")
@@ -199,6 +194,12 @@ class SlackClient: Client {
 
                 conversation.lastMessage = self._unwrapDate(ts)
 
+                //
+                // Increase the unread count for the conversation.
+                //
+
+                conversation.unread += 1
+
                 self.notificationCenter.post(name: Notification.Name("conversationListUpdate"), object: nil)
             }
         }
@@ -221,6 +222,12 @@ class SlackClient: Client {
                 print("Setting conversation \(id) lastRead to \(event.ts)")
 
                 conversation.lastRead = self._unwrapDate(event.ts)
+
+                //
+                // Reset the unread count for the conversation.
+                //
+
+                conversation.updateHistory()
 
                 self.notificationCenter.post(name: Notification.Name("conversationListUpdate"), object: nil)
             }

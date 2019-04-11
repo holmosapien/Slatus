@@ -16,6 +16,7 @@ class Conversation: NSObject {
     var members:     [UserInfo]
     var lastMessage: Date
     var lastRead:    Date
+    var unread:      Int
 
     var _webAPI: WebAPI?
 
@@ -24,6 +25,7 @@ class Conversation: NSObject {
         self.type        = type
         self.lastMessage = Date(timeIntervalSince1970: 0)
         self.lastRead    = lastRead
+        self.unread      = 0
 
         if let members = members {
             self.members = members
@@ -66,21 +68,34 @@ class Conversation: NSObject {
         case .group:
             self._webAPI?.groupInfo(id: self.id, success: _channelInfoSuccess, failure: _channelInfoFailure)
         case .im:
-            self._webAPI?.imHistory(id: self.id, latest: lastRead, success: _historySuccess, failure: _historyFailure)
+            self._webAPI?.imHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
         case .mpim:
-            self._webAPI?.mpimHistory(id: self.id, latest: lastRead, success: _historySuccess, failure: _historyFailure)
+            self._webAPI?.mpimHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
+        }
+    }
+
+    func updateHistory() {
+        if self.lastMessage > self.lastRead {
+            let lastRead = "\(self.lastRead.timeIntervalSince1970)"
+
+            self._webAPI?.channelHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
+        } else {
+            self.unread = 0
         }
     }
 
     func _channelInfoSuccess(channel: SKCore.Channel) {
-        let latestMessage = channel.latest
+        self.lastMessage = self._unwrapDate(channel.latest?.ts)
 
-        if let latestTimestampString = latestMessage?.ts {
-            if let latestTimestampDouble = Double(latestTimestampString) {
-                let latestTimestamp = Date(timeIntervalSince1970: latestTimestampDouble)
+        //
+        // Get all of the messages between the last read message and now,
+        // so we can see how many unread messages we have now.
+        //
 
-                self.lastMessage = latestTimestamp
-            }
+        if self.lastMessage > self.lastRead {
+            let lastRead = "\(self.lastRead.timeIntervalSince1970)"
+
+            self._webAPI?.channelHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
         }
     }
 
@@ -88,13 +103,35 @@ class Conversation: NSObject {
     }
 
     func _historySuccess(history: SKCore.History) {
-        // let messages = history.messages
+        var latest = self.lastRead
+        var unread = 0
 
-        if let latestTimestamp = history.latest {
-            self.lastMessage = latestTimestamp
+        for message in history.messages {
+            let ts = self._unwrapDate(message.ts)
+
+            if ts > latest {
+                latest = ts
+            }
+
+            unread += 1
         }
+
+        self.lastMessage = latest
+        self.unread      = unread
     }
 
     func _historyFailure(_ error: Any) {
+    }
+
+    func _unwrapDate(_ dateString: String?) -> Date {
+        if let lastReadString = dateString {
+            if let lastReadDouble = Double(lastReadString) {
+                let lastRead = Date(timeIntervalSince1970: lastReadDouble)
+
+                return lastRead
+            }
+        }
+
+        return Date(timeIntervalSince1970: 0)
     }
 }

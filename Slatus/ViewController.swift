@@ -124,8 +124,8 @@ extension ViewController: NSOutlineViewDelegate {
             if tableColumn?.identifier == NSUserInterfaceItemIdentifier("ConversationColumn") {
                 cell = NSUserInterfaceItemIdentifier("ConversationCell")
                 text = workspace.name
-            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("LastMessageColumn") {
-                cell = NSUserInterfaceItemIdentifier("LastMessageCell")
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
+                cell = NSUserInterfaceItemIdentifier("MessagesCell")
                 text = ""
             }
         } else if let conversation = item as? Conversation {
@@ -139,9 +139,9 @@ extension ViewController: NSOutlineViewDelegate {
                 } else {
                     text = conversation.name
                 }
-            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("LastMessageColumn") {
-                cell = NSUserInterfaceItemIdentifier("LastMessageCell")
-                text = "\(conversation.lastMessage)"
+            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
+                cell = NSUserInterfaceItemIdentifier("MessagesCell")
+                text = "\(conversation.unread)"
             }
         }
 
