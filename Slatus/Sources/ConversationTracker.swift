@@ -10,7 +10,6 @@ import Foundation
 
 class ConversationTracker {
     var conversations: [Conversation]
-    var current = -1
 
     var count: Int {
         get {
@@ -26,7 +25,18 @@ class ConversationTracker {
                 }
             }
 
-            print("There are \(count) conversations in unread state.")
+            if count == 0 {
+
+                //
+                // If there are no conversations, return '1' anyway. This will cause the
+                // view controller to fetch a NoConversations or NoUnread object, which
+                // will write a "No unread messages" line in the UI.
+                //
+                // TODO: There's probably a less stupid way to do this.
+                //
+
+                count = 1
+            }
 
             return count
         }
@@ -57,19 +67,18 @@ class ConversationTracker {
     }
 
     subscript(index: Int) -> Conversation? {
-        var i = 0
+        let all    = self.all
+        let unread = self.unread
 
-        for conversation in self.conversations {
-            if conversation.lastMessage > conversation.lastRead {
-                if i == index {
-                    return conversation
-                }
-
-                i += 1
-            }
+        if all.count == 0 {
+            return NoConversations()
         }
 
-        return nil
+        if unread.count > index {
+            return unread[index]
+        }
+
+        return NoUnread()
     }
 
     func watch(_ conversation: Conversation) {

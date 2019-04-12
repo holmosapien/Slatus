@@ -144,8 +144,13 @@ extension ViewController: NSOutlineViewDelegate {
                 }
             } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
                 cell  = NSUserInterfaceItemIdentifier("MessagesCell")
-                text  = "\(conversation.unread)"
-                color = NSColor.systemRed
+
+                if conversation.unread > 0 {
+                    text  = "\(conversation.unread)"
+                    color = NSColor.systemRed
+                } else {
+                    text = ""
+                }
             }
         }
 

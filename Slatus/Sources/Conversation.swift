@@ -71,6 +71,8 @@ class Conversation: NSObject {
             self._webAPI?.imHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
         case .mpim:
             self._webAPI?.mpimHistory(id: self.id, oldest: lastRead, success: _historySuccess, failure: _historyFailure)
+        default:
+            break
         }
     }
 
@@ -133,5 +135,33 @@ class Conversation: NSObject {
         }
 
         return Date(timeIntervalSince1970: 0)
+    }
+}
+
+class NoConversations: Conversation {
+    init() {
+        let webAPI: WebAPI? = nil
+
+        let id       = NSUUID().uuidString
+        let name     = "No conversations"
+        let members  = [UserInfo]()
+        let type     = GroupType.other
+        let lastRead = Date()
+
+        super.init(webAPI: webAPI, id: id, name: name, members: members, type: type, lastRead: lastRead)
+    }
+}
+
+class NoUnread: Conversation {
+    init() {
+        let webAPI: WebAPI? = nil
+
+        let id       = NSUUID().uuidString
+        let name     = "No unread messages"
+        let members  = [UserInfo]()
+        let type     = GroupType.other
+        let lastRead = Date()
+
+        super.init(webAPI: webAPI, id: id, name: name, members: members, type: type, lastRead: lastRead)
     }
 }

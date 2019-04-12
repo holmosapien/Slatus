@@ -3,7 +3,7 @@ import SlackKit
 import SKClient
 
 enum GroupType: String {
-    case channel, group, im, mpim
+    case channel, group, im, mpim, other
 }
 
 struct UserInfo {
