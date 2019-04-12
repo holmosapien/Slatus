@@ -11,7 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     let delegate = NSApp.delegate as? AppDelegate
 
-    @IBOutlet weak var workspaceOutlineView: NSOutlineView!
+    @IBOutlet weak var workspaceOutlineView: ConversationOutlineView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,10 +120,13 @@ extension ViewController: NSOutlineViewDelegate {
         var cell: NSUserInterfaceItemIdentifier?
         var text: String?
 
+        var color = NSColor.controlTextColor
+
         if let workspace = item as? SlackWorkspace {
             if tableColumn?.identifier == NSUserInterfaceItemIdentifier("ConversationColumn") {
-                cell = NSUserInterfaceItemIdentifier("ConversationCell")
-                text = workspace.name
+                cell  = NSUserInterfaceItemIdentifier("ConversationCell")
+                text  = workspace.name.uppercased()
+                color = NSColor.tertiaryLabelColor
             } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
                 cell = NSUserInterfaceItemIdentifier("MessagesCell")
                 text = ""
@@ -133,15 +136,16 @@ extension ViewController: NSOutlineViewDelegate {
                 cell = NSUserInterfaceItemIdentifier("ConversationCell")
 
                 if conversation.type == GroupType.channel || conversation.type == GroupType.group {
-                    text = "#\(conversation.name)"
+                    text = "  #\(conversation.name)"
                 } else if conversation.type == GroupType.im {
-                    text = "@\(conversation.name)"
+                    text = "  @\(conversation.name)"
                 } else {
-                    text = conversation.name
+                    text = "  \(conversation.name)"
                 }
             } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
-                cell = NSUserInterfaceItemIdentifier("MessagesCell")
-                text = "\(conversation.unread)"
+                cell  = NSUserInterfaceItemIdentifier("MessagesCell")
+                text  = "\(conversation.unread)"
+                color = NSColor.systemRed
             }
         }
 
@@ -156,8 +160,15 @@ extension ViewController: NSOutlineViewDelegate {
 
         if let textField = view?.textField {
             textField.stringValue = viewText
+            textField.textColor = color
         }
 
         return view
+    }
+
+    // Don't show the triangle that expands/collapses the row.
+
+    func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
+        return false
     }
 }
