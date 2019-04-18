@@ -26,6 +26,8 @@ class ViewController: NSViewController {
 
         workspaceOutlineView.delegate = self
         workspaceOutlineView.dataSource = self
+
+        workspaceOutlineView.setRowHeight()
     }
 
     override var representedObject: Any? {
@@ -116,56 +118,16 @@ extension ViewController: NSOutlineViewDataSource {
 
 extension ViewController: NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        var view: NSTableCellView?
-        var cell: NSUserInterfaceItemIdentifier?
-        var text: String?
-
-        var color = NSColor.controlTextColor
+        var view: NSView?
 
         if let workspace = item as? SlackWorkspace {
             if tableColumn?.identifier == NSUserInterfaceItemIdentifier("ConversationColumn") {
-                cell  = NSUserInterfaceItemIdentifier("ConversationCell")
-                text  = workspace.name.uppercased()
-                color = NSColor.tertiaryLabelColor
-            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
-                cell = NSUserInterfaceItemIdentifier("MessagesCell")
-                text = ""
+                view = workspaceOutlineView.makeWorkspaceHeader(workspace)
             }
         } else if let conversation = item as? Conversation {
             if tableColumn?.identifier == NSUserInterfaceItemIdentifier("ConversationColumn") {
-                cell = NSUserInterfaceItemIdentifier("ConversationCell")
-
-                if conversation.type == GroupType.channel || conversation.type == GroupType.group {
-                    text = "  #\(conversation.name)"
-                } else if conversation.type == GroupType.im {
-                    text = "  @\(conversation.name)"
-                } else {
-                    text = "  \(conversation.name)"
-                }
-            } else if tableColumn?.identifier == NSUserInterfaceItemIdentifier("MessagesColumn") {
-                cell  = NSUserInterfaceItemIdentifier("MessagesCell")
-
-                if conversation.unread > 0 {
-                    text  = "\(conversation.unread)"
-                    color = NSColor.systemRed
-                } else {
-                    text = ""
-                }
+                view = workspaceOutlineView.makeConversationRow(conversation)
             }
-        }
-
-        guard
-            let viewCell = cell,
-            let viewText = text
-        else {
-            return view
-        }
-
-        view = workspaceOutlineView.makeView(withIdentifier: viewCell, owner: nil) as? NSTableCellView
-
-        if let textField = view?.textField {
-            textField.stringValue = viewText
-            textField.textColor = color
         }
 
         return view

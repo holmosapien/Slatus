@@ -82,6 +82,12 @@ class ConversationTracker {
     }
 
     func watch(_ conversation: Conversation) {
+        for c in self.conversations {
+            if c.id == conversation.id {
+                return
+            }
+        }
+
         self.conversations.append(conversation)
     }
 }
