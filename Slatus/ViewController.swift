@@ -26,8 +26,6 @@ class ViewController: NSViewController {
 
         workspaceOutlineView.delegate = self
         workspaceOutlineView.dataSource = self
-
-        workspaceOutlineView.setRowHeight()
     }
 
     override var representedObject: Any? {

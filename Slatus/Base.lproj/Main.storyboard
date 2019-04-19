@@ -870,23 +870,23 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Slatus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="290"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="17" horizontalPageScroll="10" verticalLineScroll="17" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZV-mT-rRN">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="290"/>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZV-mT-rRN">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="450"/>
                                 <clipView key="contentView" id="35F-2v-pUF">
-                                    <rect key="frame" x="0.0" y="0.0" width="480" height="290"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="450"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" viewBased="YES" indentationMarkerFollowsCell="NO" autoresizesOutlineColumn="YES" outlineTableColumn="d2K-WV-luq" id="9Vv-Gm-Ka7" customClass="ConversationOutlineView" customModule="Slatus" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="470" height="280"/>
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationMarkerFollowsCell="NO" autoresizesOutlineColumn="YES" outlineTableColumn="d2K-WV-luq" id="9Vv-Gm-Ka7" customClass="ConversationOutlineView" customModule="Slatus" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <size key="intercellSpacing" width="4" height="0.0"/>
+                                            <size key="intercellSpacing" width="4" height="5"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="ConversationColumn" width="466" minWidth="40" maxWidth="1000" id="d2K-WV-luq">
+                                                <tableColumn identifier="ConversationColumn" width="236" minWidth="40" maxWidth="1000" id="d2K-WV-luq">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Conversation">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -900,11 +900,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="ConversationCell" id="2Ga-eZ-nfR">
-                                                            <rect key="frame" x="2" y="0.0" width="466" height="17"/>
+                                                            <rect key="frame" x="2" y="2" width="236" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAY-8w-EgY" userLabel="Conversation">
-                                                                    <rect key="frame" x="1" y="0.0" width="465" height="17"/>
+                                                                    <rect key="frame" x="1" y="0.0" width="235" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="TB4-Io-hSZ">
                                                                         <font key="font" metaFont="system"/>
@@ -951,7 +951,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="-40" y="735"/>
         </scene>
     </scenes>
 </document>
